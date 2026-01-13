@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mirtelo | Der Agent, der niemals aufhört zu verkaufen</title>
+    <script>
+      // Suppress the Tailwind CSS CDN production warning
+      const originalWarn = console.warn;
+      console.warn = (...args) => {
+        if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com should not be used in production')) {
+          return;
+        }
+        originalWarn.apply(console, args);
+      };
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +41,7 @@
     </script>
     <style>
       body {
-        background-color: #fffff;
+        background-color: #ffffff;
         color: #111;
       }
       .hide-scrollbar::-webkit-scrollbar {
